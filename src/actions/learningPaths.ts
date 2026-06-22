@@ -49,7 +49,7 @@ export async function createLearningPath(formData: FormData) {
   const validation = LearningPathSchema.safeParse(rawData);
 
   if (!validation.success) {
-    return { success: false, error: validation.error.errors[0].message };
+    return { success: false, error: validation.error.issues[0].message };
   }
 
   try {
@@ -77,7 +77,7 @@ export async function updateLearningPath(id: string, formData: FormData) {
   const validation = LearningPathSchema.safeParse(rawData);
 
   if (!validation.success) {
-    return { success: false, error: validation.error.errors[0].message };
+    return { success: false, error: validation.error.issues[0].message };
   }
 
   try {
